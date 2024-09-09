@@ -1,0 +1,33 @@
+<div class="mt-5 px-4 pt-4 pb-6 sm:px-5 bg-white rounded-md">
+    @if (isLead) {
+    <div class="sm:flex sm:items-center">
+        <div class="sm:flex-auto">
+            <h1 class="text-base font-semibold leading-6 text-gray-900">Leads</h1>
+            <p class="mt-2 text-sm text-gray-700">Here is the list of all the leads including their name, title,
+                email and role.</p>
+        </div>
+        <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+            <button type="button" (click)="addLead()"
+                class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add
+                Lead</button>
+        </div>
+    </div>
+
+    <app-lead-list></app-lead-list>
+    }
+    @else {
+    <div class="sm:flex sm:items-center">
+        <div class="sm:flex-auto">
+            <h1 class="text-base font-semibold leading-6 text-gray-900">Lead Creation</h1>
+            <p class="mt-2 text-sm text-gray-700">You can create lead here</p>
+        </div>
+        <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+            <button type="button" (click)="viewLeads()"
+                class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Lead
+                List</button>
+        </div>
+    </div>
+
+    <app-lead-create></app-lead-create>
+    }
+</div>
