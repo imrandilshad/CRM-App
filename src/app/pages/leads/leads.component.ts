@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LeadListComponent } from "./lead-list/lead-list.component";
-import { LeadCreateComponent } from "./lead-create/lead-create.component";
+import { LeadCreateComponent } from '@pages/leads/lead-create/lead-create.component';
+import { LeadListComponent } from '@pages/leads/lead-list/lead-list.component';
 
 @Component({
   selector: 'app-leads',

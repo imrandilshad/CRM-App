@@ -1,7 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-import { fontFamily } from './constants';
-
 const presetDefault = require('./presets');
 const pluginFeature = require('./plugin-feature');
 
@@ -76,11 +74,10 @@ module.exports = {
       zIndex: {
         1: '1',
       },
-      blur: {
-      },
     },
   },
   plugins: [
     pluginFeature,
+    require('@tailwindcss/forms'),
   ],
 }

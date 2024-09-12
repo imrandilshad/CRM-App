@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
-import { Customer } from '../models/customer.model';
-import { Lead } from '../models/lead.model';
+import { Customer } from '@shared/models/customer.model';
+import { Lead } from '@shared/models/lead.model';
 
 @Injectable({
   providedIn: 'root'

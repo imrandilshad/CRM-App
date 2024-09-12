@@ -1,8 +1,8 @@
 import { Component, effect } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Customer } from '../../shared/models/customer.model';
-import { Lead } from '../../shared/models/lead.model';
-import { LeadsService } from '../../shared/services/leads.service';
+import { Customer } from '@shared/models/customer.model';
+import { Lead } from '@shared/models/lead.model';
+import { LeadsService } from '@shared/services/leads.service';
 
 @Component({
   selector: 'app-dashboard',

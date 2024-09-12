@@ -1,6 +1,6 @@
 import { Component, effect } from '@angular/core';
-import { Customer } from '../../shared/models/customer.model';
-import { LeadsService } from '../../shared/services/leads.service';
+import { Customer } from '@shared/models/customer.model';
+import { LeadsService } from '@shared/services/leads.service';
 import { NgFor } from '@angular/common';
 
 @Component({

@@ -25,6 +25,11 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "assets": [
               "src/assets"
             ],
@@ -84,6 +89,11 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "assets": [
               {
                 "glob": "**/*",
@@ -91,6 +101,9 @@
               }
             ],
             "styles": [
+              "./node_modules/tailwindcss/base.css",
+              "./node_modules/tailwindcss/components.css",
+              "./node_modules/tailwindcss/utilities.css",
               "src/styles.scss"
             ],
             "scripts": []
