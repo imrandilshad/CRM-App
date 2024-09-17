@@ -23,6 +23,7 @@
       "@app/*": ["app/*"],
       "@environment/*": ["environments/*"],
       "@shared/*": ["app/shared/*"],
+      "@guards/*": ["app/guards/*"],
       "@pages/*": ["app/pages/*"],
       "@assets/*": ["assets/*"],
       "@styles/*": ["styles/*"]
