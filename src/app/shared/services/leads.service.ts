@@ -17,7 +17,9 @@ export class LeadsService {
 
   private getLeadsFromLocalStorage(): Lead[] {
     const leads = localStorage.getItem('leads');
-    return leads ? JSON.parse(leads) : [];
+    const parsedLeads: Lead[] = leads ? JSON.parse(leads) : [];
+
+    return parsedLeads.filter(lead => lead.username === localStorage.getItem("username"));
   }
 
   private getCustomersFromLocalStorage(): Customer[] {
@@ -34,8 +36,10 @@ export class LeadsService {
   }
 
   addLead(name: string, email: string, phone: string) {
+    const username = localStorage.getItem('username') || 'defaultUsername';
     const newLead: Lead = {
       id: this.leadIdCounter++,
+      username,
       name,
       email,
       phone,

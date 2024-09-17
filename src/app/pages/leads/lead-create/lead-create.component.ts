@@ -31,6 +31,7 @@ export class LeadCreateComponent {
   addLead() {
     if (this.leadForm.valid) {
       const { name, email, phone } = this.leadForm.value;
+
       this.leadsService.addLead(name, email, phone);
       this.leadForm.reset();
       this.router.navigate(["dashboard"]);
