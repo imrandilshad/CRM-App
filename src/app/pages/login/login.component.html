@@ -7,13 +7,13 @@
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
     <form [formGroup]="loginform" (ngSubmit)="login()" class="space-y-6"   >
       <div>
-        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+        <label for="username" class="block text-sm font-medium leading-6 text-gray-900">username</label>
         <div class="mt-2">
-          <input formControlName="email" id="email" name="email" type="email" autocomplete="email" required
+          <input formControlName="username" id="username" name="username" type="text" autocomplete="username" required
             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
         </div>
-        <div *ngIf="loginform.get('email')?.touched && loginform.get('email')?.invalid" class="text-red-500">
-          <small *ngIf="loginform.get('email')?.errors?.['required']">email is required.</small>
+        <div *ngIf="loginform.get('username')?.touched && loginform.get('username')?.invalid" class="text-red-500">
+          <small *ngIf="loginform.get('username')?.errors?.['required']">username is required.</small>
 
       </div>
       </div>

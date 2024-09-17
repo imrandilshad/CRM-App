@@ -1,4 +1,4 @@
-import { Component, effect } from '@angular/core';
+import { ChangeDetectorRef, Component, effect } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Customer } from '@shared/models/customer.model';
 import { Lead } from '@shared/models/lead.model';
@@ -15,10 +15,13 @@ export class DashboardComponent {
   leads: Lead[] = [];
   customers: Customer[] = [];
 
-  constructor(private leadsService: LeadsService) {
+  constructor(private leadsService: LeadsService,private cdr: ChangeDetectorRef) {
     effect(() => {
       this.leads = this.leadsService.leads();
       this.customers = this.leadsService.customers();
     });
+  }
+  refreshView() {
+    this.cdr.detectChanges();
   }
 }
