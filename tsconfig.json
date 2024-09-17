@@ -15,38 +15,18 @@
     "declaration": false,
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
-    "types": [
-      "node",
-      "jest",
-      "express"
-    ],
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
+    "lib": ["ES2022", "dom"],
     "paths": {
-      "@app/*": [
-        "app/*"
-      ],
-      "@environment/*": [
-        "environments/*"
-      ],
-      "@shared/*": [
-        "app/shared/*"
-      ],
-      "@pages/*": [
-        "app/pages/*"
-      ],
-      "@assets/*": [
-        "assets/*"
-      ],
-      "@styles/*": [
-        "styles/*"
-      ]
-    },
+      "@app/*": ["app/*"],
+      "@environment/*": ["environments/*"],
+      "@shared/*": ["app/shared/*"],
+      "@pages/*": ["app/pages/*"],
+      "@assets/*": ["assets/*"],
+      "@styles/*": ["styles/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

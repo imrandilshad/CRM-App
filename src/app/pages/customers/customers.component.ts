@@ -1,14 +1,14 @@
-import { Component, effect } from '@angular/core';
-import { Customer } from '@shared/models/customer.model';
-import { LeadsService } from '@shared/services/leads.service';
-import { NgFor } from '@angular/common';
+import { Component, effect } from "@angular/core";
+import { NgFor } from "@angular/common";
+import { Customer } from "@shared/models/customer.model";
+import { LeadsService } from "@shared/services/leads.service";
 
 @Component({
-  selector: 'app-customers',
+  selector: "app-customers",
   standalone: true,
   imports: [NgFor],
-  templateUrl: './customers.component.html',
-  styleUrl: './customers.component.scss'
+  templateUrl: "./customers.component.html",
+  styleUrl: "./customers.component.scss",
 })
 export class CustomersComponent {
   customers: Customer[] = [];
