@@ -84,12 +84,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "./node_modules/tailwindcss/base.css",
-              "./node_modules/tailwindcss/components.css",
-              "./node_modules/tailwindcss/utilities.css",
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         }
