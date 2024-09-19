@@ -11,9 +11,9 @@ import { Router, RouterModule } from "@angular/router";
 })
 export class NavbarComponent {
   constructor(private router: Router) {}
-  islogin: boolean = localStorage.getItem("username") ? true : false;
+  islogin: boolean = localStorage.getItem("userInfo") ? true : false;
   logOut() {
-    localStorage.removeItem("username");
+    localStorage.removeItem("userInfo");
     window.location.reload();
     this.router.navigate(["login"]);
   }

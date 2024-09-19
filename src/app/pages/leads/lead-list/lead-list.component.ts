@@ -15,7 +15,7 @@ export class LeadListComponent {
 
   constructor(private leadsService: LeadsService) {
     effect(() => {
-      this.leads = this.leadsService.leads();
+      this.leads = this.leadsService.LeadsOfLoginUser();
     });
   }
 

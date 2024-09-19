@@ -17,8 +17,8 @@ export class DashboardComponent {
 
   constructor(private leadsService: LeadsService,private cdr: ChangeDetectorRef) {
     effect(() => {
-      this.leads = this.leadsService.leads();
-      this.customers = this.leadsService.customers();
+      this.leads = this.leadsService.LeadsOfLoginUser();
+      this.customers = this.leadsService.CustomersOfLoginUser();
     });
   }
   refreshView() {

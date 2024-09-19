@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { ErrorInterceptor } from '@app/shared/services/error-interceptor.service';
+
 import { catchError, throwError } from 'rxjs';
 
 @Component({
@@ -13,16 +13,14 @@ import { catchError, throwError } from 'rxjs';
   imports: [ReactiveFormsModule, CommonModule,RouterModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
-  ]
+
 })
 export class LoginComponent {
   loginform: FormGroup;
 
 constructor(private LoginService:LoginService, private router:Router ) {
   this.loginform= new FormGroup({
-    username: new FormControl("", [Validators.required]),
+    email: new FormControl("", [Validators.required]),
     password: new FormControl("", [
       Validators.required,
 
@@ -32,10 +30,10 @@ constructor(private LoginService:LoginService, private router:Router ) {
   });
 }
 login() {
-  const res={};
-  const{username, password}= this.loginform.value;
 
-  this.LoginService.loginUser(username,password)
+  const{email, password}= this.loginform.value;
+alert(email)
+  this.LoginService.loginUser(email,password)
   .pipe(
     catchError((error: any) => {
       console.error('An error occurred:', error);
@@ -45,12 +43,17 @@ login() {
   .subscribe(
    (result)=> {
 
-  if(result.status==200)
+  if(result.result===true)
     {
-     localStorage.setItem("username",username);
+      // let userData = localStorage.getItem("userInfo");
+       let data =  JSON.stringify(result.data) ;
+     localStorage.setItem("userInfo",data);
+ console.log(data)
      this.router.navigate(["dashboard"])
-
-
+      // console.log(result);
+    }
+    else{
+      alert("email or password incorrect");
     }
    }
    )

@@ -11,8 +11,8 @@ import { login } from '../models/login.model';
 })
 export class LoginService  {
   loginData:login={
-    username: '',
-    password: ''
+    EmailId: '',
+    Password: ''
   }
 
 
@@ -20,7 +20,9 @@ export class LoginService  {
   constructor(private http: HttpClient) { }
 
 
-  loginUser(username:string,password:string ): Observable<any> {
-    return this.http.get(`https://petstore.swagger.io/v2/user/login??username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,{ observe: 'response' });
+  loginUser(email:string,password:string ): Observable<any> {
+    this.loginData.EmailId=email;
+    this.loginData.Password=password
+    return  this.http.post('https://freeapi.miniprojectideas.com/api/JWT/login',this.loginData);
   }
 }
