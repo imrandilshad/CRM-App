@@ -2,14 +2,12 @@
     <div class="space-y-12 sm:space-y-16">
         <div
             class="mt-10 space-y-8 border-b border-gray-900/10 pb-12 sm:space-y-0 sm:divide-y sm:divide-gray-900/10 sm:border-t sm:pb-0">
-
             <div class="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
-                <label for="name" class="block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5">Full
-                    Name</label>
+                <label for="name" class="block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5">Full Name</label>
                 <div class="mt-2 sm:mt-0">
                     <input formControlName="name" type="text" name="name" id="name" autocomplete="given-name" required
                         placeholder="Name" appAlphabetsOnly
-                        class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                        class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" />
                 </div>
                 <div *ngIf="leadForm.get('name')?.touched && leadForm.get('name')?.invalid" class="text-red-500">
                     <small *ngIf="leadForm.get('name')?.errors?.['required']">Name is required.</small>
@@ -23,11 +21,15 @@
                 <div class="mt-2 sm:mt-0">
                     <input formControlName="email" type="text" name="email" id="email" autocomplete="given-email"
                         required placeholder="Email"
-                        class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                        class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" />
                 </div>
-                <div *ngIf="leadForm.get('email')?.touched && leadForm.get('email')?.invalid">
-                    <small *ngIf="leadForm.get('email')?.errors?.['required']">Email is required.</small>
-                    <small *ngIf="leadForm.get('email')?.errors?.['email']">Enter a valid email address.</small>
+                <div *ngIf="
+            leadForm.get('email')?.touched && leadForm.get('email')?.invalid
+          ">
+                    <small *ngIf="leadForm.get('email')?.errors?.['required']" class="text-red-500">Email is
+                        required.</small>
+                    <small *ngIf="leadForm.get('email')?.errors?.['email']" class="text-red-500">Enter a valid email
+                        address.</small>
                 </div>
             </div>
 
@@ -36,15 +38,21 @@
                 <div class="mt-2 sm:mt-0">
                     <input formControlName="phone" type="text" name="phone" id="phone" autocomplete="given-phone"
                         required placeholder="Phone"
-                        class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                        class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" />
                 </div>
-                <div *ngIf="leadForm.get('phone')?.touched && leadForm.get('phone')?.invalid">
-                    <small *ngIf="leadForm.get('phone')?.errors?.['required']">Phone is required.</small>
-                    <small *ngIf="leadForm.get('phone')?.errors?.['pattern']">Phone number must contain only
+                <div *ngIf="
+            leadForm.get('phone')?.touched && leadForm.get('phone')?.invalid
+          ">
+                    <small *ngIf="leadForm.get('phone')?.errors?.['required']" class="text-red-500">Phone is
+                        required.</small>
+                    <small *ngIf="leadForm.get('phone')?.errors?.['pattern']" class="text-red-500">Phone number must
+                        contain only
                         digits.</small>
-                    <small *ngIf="leadForm.get('phone')?.errors?.['minlength']">Phone number must be at least 10 digits
+                    <small *ngIf="leadForm.get('phone')?.errors?.['minlength']" class="text-red-500">Phone number must
+                        be at least 10 digits
                         long.</small>
-                    <small *ngIf="leadForm.get('phone')?.errors?.['maxlength']">Phone number cannot be longer than 15
+                    <small *ngIf="leadForm.get('phone')?.errors?.['maxlength']" class="text-red-500">Phone number cannot
+                        be longer than 15
                         digits.</small>
                 </div>
             </div>
@@ -53,7 +61,8 @@
         <div class="mt-6 flex items-center justify-end gap-x-6">
             <button type="submit" [disabled]="leadForm.invalid"
                 class="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm disabled:bg-gray-500 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:cursor-not-allowed">
-                Create Lead</button>
+                Create Lead
+            </button>
         </div>
     </div>
 </form>

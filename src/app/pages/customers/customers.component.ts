@@ -15,7 +15,8 @@ export class CustomersComponent {
 
   constructor(private leadsService: LeadsService) {
     effect(() => {
-      this.customers = this.leadsService.CustomersOfLoginUser();
+
+      this.customers = this.leadsService.customers().filter(customer => customer.userId === this.leadsService.getloginUserData().userId);
     });
   }
 }
