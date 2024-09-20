@@ -17,11 +17,10 @@ export class DashboardComponent {
 
   constructor(private leadsService: LeadsService,private cdr: ChangeDetectorRef) {
     effect(() => {
-      this.leads = this.leadsService.LeadsOfLoginUser();
-      this.customers = this.leadsService.CustomersOfLoginUser();
+      this.leads = this.leadsService.leads().filter(lead => lead.userId === this.leadsService.getloginUserData().userId);
+      this.customers = this.leadsService.customers().filter(customer => customer.userId === this.leadsService.getloginUserData().userId);
     });
+
   }
-  refreshView() {
-    this.cdr.detectChanges();
-  }
+
 }

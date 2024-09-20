@@ -1,6 +1,9 @@
+
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { ChangeDetectorRef, Component, effect } from "@angular/core";
 import { Router, RouterModule } from "@angular/router";
+import { NavbarService } from "@app/shared/services/navabar.service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-navbar",
@@ -10,11 +13,35 @@ import { Router, RouterModule } from "@angular/router";
   styleUrl: "./navbar.component.scss",
 })
 export class NavbarComponent {
-  constructor(private router: Router) {}
-  islogin: boolean = localStorage.getItem("userInfo") ? true : false;
+
+public islogin:boolean= false
+  private navbarReloadSubscription!: Subscription;
+
+  constructor(private navbarService: NavbarService,private router: Router) { }
+
+  ngOnInit(): void {
+
+    this.navbarReloadSubscription = this.navbarService.reloadNavbar$.subscribe(() => {
+      this.reloadNavbar();
+    });
+  }
+
+  reloadNavbar() {
+
+    this.islogin = localStorage.getItem("userInfo") ? true : false;
+  }
+
+  ngOnDestroy(): void {
+
+    if (this.navbarReloadSubscription) {
+      this.navbarReloadSubscription.unsubscribe();
+    }
+  }
+
   logOut() {
     localStorage.removeItem("userInfo");
-    window.location.reload();
+   this.islogin=false;
     this.router.navigate(["login"]);
   }
+
 }

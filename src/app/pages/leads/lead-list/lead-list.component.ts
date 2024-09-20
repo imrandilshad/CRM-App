@@ -14,8 +14,9 @@ export class LeadListComponent {
   leads: Lead[] = [];
 
   constructor(private leadsService: LeadsService) {
+
     effect(() => {
-      this.leads = this.leadsService.LeadsOfLoginUser();
+      this.leads = this.leadsService.leads().filter(lead => lead.userId === this.leadsService.getloginUserData().userId);
     });
   }
 

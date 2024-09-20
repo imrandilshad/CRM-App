@@ -12,8 +12,7 @@ export class LeadsService {
   customers = signal<Customer[]>(this.getCustomersFromLocalStorage());
 
 
-LeadsOfLoginUser= signal<Lead[]>(this.getLeadsOfLoginUser());
-CustomersOfLoginUser=signal<Customer[]>(this.getCustomersOfLoginUser());
+
 
   constructor() {
     this.leadIdCounter = this.leads().length + 1;
@@ -40,15 +39,13 @@ return this.getLeadsFromLocalStorage().filter(lead => lead.userId === this.getlo
 
     const leads = localStorage.getItem('leads');
     return leads ? JSON.parse(leads) : [];
-    // const parsedLeads: Lead[] = leads ? JSON.parse(leads) : [];
-    // return parsedLeads.filter(lead => lead.userId === this.getloginUserData().userId);
+
   }
 
   private getCustomersFromLocalStorage(): Customer[] {
     const customers = localStorage.getItem('customers');
     return customers ? JSON.parse(customers) : [];
-    // const parsedCustomers= customers ? JSON.parse(customers) : [];
-    // return parsedCustomers.filter((customer: { userId: any; }) => customer.userId === this.getloginUserData().userId);
+
   }
 
   private saveLeadsToLocalStorage(leads: Lead[]): void {
