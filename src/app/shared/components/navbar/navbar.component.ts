@@ -11,10 +11,13 @@ import { Router, RouterModule } from "@angular/router";
 })
 export class NavbarComponent {
   constructor(private router: Router) {}
-  islogin: boolean = localStorage.getItem("userInfo") ? true : false;
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem("userInfo");
+  }
+
   logOut() {
     localStorage.removeItem("userInfo");
-    window.location.reload();
-    this.router.navigate(["login"]);
+    this.router.navigate(["/login"]);
   }
 }

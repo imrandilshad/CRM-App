@@ -1,26 +1,31 @@
 <nav class="bg-white shadow sticky top-0">
     <div class="mx-auto container px-4 sm:px-6 lg:px-4">
+
+        @if(isLoggedIn()) {
+
         <div class="flex justify-between h-16">
             <div routerLink="/" class="flex flex-shrink-0 items-center cursor-pointer">
                 <img class="block h-12 w-auto lg:hidden" src="./assets/svgs/logo.svg" alt="app logo">
                 <img class="hidden h-12 w-auto lg:block" src="./assets/svgs/logo.svg" alt="app logo">
             </div>
 
-            <div class="hidden sm:ml-auto sm:flex sm:items-center sm:space-x-8 main-nav">
+            <!-- Show links only when the user is logged in -->
+            <div *ngIf="isLoggedIn()" class="hidden sm:ml-auto sm:flex sm:items-center sm:space-x-8 main-nav">
                 <a routerLink="/dashboard" routerLinkActive="active-link">Dashboard</a>
                 <a routerLink="/leads" routerLinkActive="active-link">Leads</a>
                 <a routerLink="/customers" routerLinkActive="active-link">Customers</a>
-                @if(islogin){
-
                 <button (click)="logOut()" type="button"
-                    class="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm py-2.5 px-5">Logout</button>
-                }
+                    class="text-white bg-blue-500 hover:bg-blue-600 font-medium rounded-lg text-sm py-2.5 px-5">
+                    Logout
+                </button>
             </div>
         </div>
+        }
+
     </div>
 
-    <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="sm:hidden" id="mobile-menu">
+    <!-- Mobile menu -->
+    <div class="sm:hidden" id="mobile-menu" *ngIf="isLoggedIn()">
         <div class="space-y-1 pb-3 pt-2">
             <a routerLink="/dashboard" routerLinkActive="active-link">Dashboard</a>
             <a routerLink="/leads" routerLinkActive="active-link">Leads</a>
