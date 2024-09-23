@@ -47,7 +47,7 @@ export class RegistrationComponent {
         )
         .subscribe((result) => {
           if (result.result === true) {
-            this.router.navigate(["dashboard"]);
+            this.router.navigate(["login"]);
             console.log(result);
           } else {
             alert("Email Already Present");
